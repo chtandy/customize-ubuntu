@@ -44,4 +44,4 @@ ubuntu-build:
     - echo $HOSTNAME
     - pwd
     - ls -al
-    - apt-get update
+    - docker images
