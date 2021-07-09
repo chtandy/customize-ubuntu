@@ -1,3 +1,7 @@
+services:
+  - name: docker:dind
+    alias: docker
+
 variables:
   # When using dind service, you must instruct Docker to talk with
   # the daemon started inside of the service. The daemon is available
@@ -6,6 +10,7 @@ variables:
   DOCKER_HOST: tcp://docker:2376
   DOCKER_CERT_PATH: /certs/client
   DOCKER_TLS_CERTDIR: /certs
+  DOCKER_DRIVER: overlay2
 stages:
   - build
   
