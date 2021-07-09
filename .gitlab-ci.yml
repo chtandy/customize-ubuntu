@@ -35,7 +35,7 @@ ubuntu-build:
   #environment:
   #  name: review/$CI_COMMIT_REF_NAME
   tags:
-    - andyhuang-ubuntu
+    - andyhuang-lab
 
   script:
     - apt-get update
