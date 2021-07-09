@@ -8,6 +8,9 @@ docker-build:
     - andyhuang-lab
   before_script:
     - ls -al
+    - cat /etc/resolv.conf
+    - cat /etc/hosts
+
   script:
     - docker build -t ubuntu .
     #- docker push nexus-beta.gamesoft-tech.com/jenkins-agent:latest
