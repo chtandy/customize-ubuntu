@@ -1,9 +1,9 @@
 #image: docker:stable
 
 # 使用docker in docker 必要的 services 區塊
-services:
-  - name: docker:dind
-    alias: docker
+#services:
+#  - name: docker:dind
+#    alias: docker
 
 #variables:
 #  DOCKER_HOST: tcp://docker:2376
@@ -14,7 +14,7 @@ stages:
   - build
   - test  
 docker-build:
-  #image: docker:dind
+  image: docker:dind
   stage: build
   #environment:
   #  name: review/$CI_COMMIT_REF_NAME
@@ -27,8 +27,6 @@ docker-build:
 
   script:
     - docker pull busybox
-
-
 
 ubuntu-build:
   image: ubuntu:20.04
