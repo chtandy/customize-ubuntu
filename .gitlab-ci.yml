@@ -10,7 +10,7 @@ stages:
   - build
   
 docker-build:
-  image: docker:dind
+  image: docker:19.03.12-dind
   stage: build
   tags:
     - andyhuang-lab
