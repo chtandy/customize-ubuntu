@@ -1,9 +1,9 @@
 #image: docker:stable
 
 # 使用docker in docker 必要的 services 區塊
-#services:
-#  - name: docker:dind
-#    alias: docker
+services:
+  - name: docker:dind
+    alias: docker
 
 #variables:
 #  DOCKER_HOST: tcp://docker:2376
@@ -13,6 +13,7 @@
 stages:
   - build
   - test  
+
 docker-build:
   image: docker:dind
   stage: build
