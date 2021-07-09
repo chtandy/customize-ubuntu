@@ -4,7 +4,7 @@ variables:
   # with a network connection instead of the default
   # /var/run/docker.sock socket.
   DOCKER_HOST: tcp://docker:2376
-
+  DOCKER_CERT_PATH: /certs/client
 stages:
   - build
   
