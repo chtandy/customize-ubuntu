@@ -39,4 +39,4 @@ ubuntu-build:
     - andyhuang-ubuntu
 
   script:
-    - env
+    - /bin/bash -c lsb_release -a
