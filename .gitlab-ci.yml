@@ -5,6 +5,7 @@ variables:
   # /var/run/docker.sock socket.
   DOCKER_HOST: tcp://docker:2376
   DOCKER_CERT_PATH: /certs/client
+  DOCKER_TLS_CERTDIR: /certs
 stages:
   - build
   
@@ -14,11 +15,11 @@ docker-build:
   tags:
     - andyhuang-lab
   before_script:
-    - echo "nameserver 127.0.0.1" > /etc/resolv.conf
+    #- echo "nameserver 127.0.0.1" > /etc/resolv.conf
     - ls -al
     - cat /etc/resolv.conf
     - cat /etc/hosts
-
+    - docker ps
 
   script:
     - docker build -t ubuntu .
