@@ -5,8 +5,10 @@ services:
   - name: docker:dind
     alias: docker
 
-#variables:
-  #DOCKER_DRIVER: overlay2
+variables:
+  DOCKER_HOST: tcp://docker:2376
+  DOCKER_TLS_CERTDIR: "/certs"
+  DOCKER_CERT_PATH: "$DOCKER_TLS_CERTDIR/client"
 
 stages:
   - build
