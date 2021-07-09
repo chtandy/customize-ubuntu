@@ -1,0 +1,14 @@
+stages:
+  - build
+  
+docker-build:
+  image: docker:dind
+  stage: build
+  tags:
+    - andyhuang-lab
+  before_script:
+    - ls -al
+  script:
+    - docker build -t ubuntu .
+    #- docker push nexus-beta.gamesoft-tech.com/jenkins-agent:latest
+
