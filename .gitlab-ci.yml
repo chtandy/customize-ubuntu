@@ -1,6 +1,9 @@
-services:
-  - name: docker:dind
-    alias: docker
+# 使用docker in docker 必要區塊
+image: docker:dind
+
+#services:
+#  - name: docker:dind
+#    alias: docker
 
 #variables:
   # When using dind service, you must instruct Docker to talk with
@@ -11,11 +14,12 @@ services:
   #DOCKER_CERT_PATH: /certs/client
   #DOCKER_TLS_CERTDIR: /certs
   #DOCKER_DRIVER: overlay2
+
 stages:
   - build
   
 docker-build:
-  image: docker:19.03.12-dind
+  #image: docker:dind
   stage: build
   tags:
     - andyhuang-lab
