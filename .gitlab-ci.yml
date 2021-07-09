@@ -27,10 +27,11 @@ docker-build:
     - cat /etc/hosts
 
   script:
-    - echo $HOSTNAME
-    - pwd
-    - docker pull busybox
-    - docker images
+    - |
+      - echo $HOSTNAME
+        pwd
+        docker pull busybox
+        docker images
 
 ubuntu-build:
   image: ubuntu:20.04
@@ -44,4 +45,4 @@ ubuntu-build:
     - echo $HOSTNAME
     - pwd
     - ls -al
-    - docker images
+    - apt-get update
