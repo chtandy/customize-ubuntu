@@ -38,4 +38,5 @@ ubuntu-build:
     - andyhuang-lab
 
   script:
+    - ls -al
     - apt-get update
