@@ -39,7 +39,7 @@ ubuntu-build:
   #environment:
   #  name: review/$CI_COMMIT_REF_NAME
   tags:
-    - andyhuang-lab
+    - andyhuang-ubuntu
 
   script:
     - lsb_release -a
