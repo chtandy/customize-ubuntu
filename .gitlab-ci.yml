@@ -27,7 +27,9 @@ docker-build:
     - cat /etc/hosts
 
   script:
+    - pwd
     - docker pull busybox
+    - docker images
 
 ubuntu-build:
   image: ubuntu:20.04
@@ -38,5 +40,6 @@ ubuntu-build:
     - andyhuang-lab
 
   script:
+    - pwd
     - ls -al
     - apt-get update
