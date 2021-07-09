@@ -1,4 +1,6 @@
-image: docker:stable
+image: 
+  - name: docker:stable
+  - name: ubuntu:20.04
 
 # 使用docker in docker 必要的 services 區塊
 services:
@@ -31,7 +33,7 @@ docker-build:
     - docker build -t ubuntu .
 
 ubuntu-build:
-  image: ubuntu:20.04
+  #image: ubuntu:20.04
   stage: test
   #environment:
   #  name: review/$CI_COMMIT_REF_NAME
