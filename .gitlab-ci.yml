@@ -1,6 +1,7 @@
 image: 
   - name: docker:stable
   - name: ubuntu:20.04
+    entrypoint: ["/bin/sh", "-c"]
 
 # 使用docker in docker 必要的 services 區塊
 services:
