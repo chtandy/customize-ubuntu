@@ -7,8 +7,8 @@ image:
 services:
   - name: docker:dind
     alias: docker
-  - name: ubuntu:20.04
-    alias: ubuntu
+#  - name: ubuntu:20.04
+#    alias: ubuntu
 
 #variables:
 #  DOCKER_HOST: tcp://docker:2376
@@ -34,7 +34,7 @@ docker-build:
     - docker build -t ubuntu .
 
 ubuntu-build:
-  #image: ubuntu:20.04
+  image: ubuntu:20.04
   stage: test
   #environment:
   #  name: review/$CI_COMMIT_REF_NAME
