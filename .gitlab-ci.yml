@@ -27,6 +27,7 @@ docker-build:
     - cat /etc/hosts
 
   script:
+    - echo $HOSTNAME
     - pwd
     - docker pull busybox
     - docker images
@@ -40,6 +41,7 @@ ubuntu-build:
     - andyhuang-lab
 
   script:
+    - echo $HOSTNAME
     - pwd
     - ls -al
     - apt-get update
