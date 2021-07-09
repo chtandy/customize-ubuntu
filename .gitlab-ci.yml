@@ -1,6 +1,6 @@
-# 使用docker in docker 必要區塊
-#image: docker:dind
+image: docker:stable
 
+# 使用docker in docker 必要的 services 區塊
 services:
   - name: docker:dind
     alias: docker
