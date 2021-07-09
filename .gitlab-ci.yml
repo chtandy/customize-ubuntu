@@ -26,3 +26,13 @@ docker-build:
   script:
     - docker build -t ubuntu .
 
+docker-build:
+  image: ubuntu:20.04
+  stage: build
+  #environment:
+  #  name: review/$CI_COMMIT_REF_NAME
+  tags:
+    - andyhuang-lab
+
+  script:
+    - lsb_release -a
