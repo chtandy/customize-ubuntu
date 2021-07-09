@@ -14,6 +14,8 @@ stages:
 docker-build:
   #image: docker:dind
   stage: build
+  #environment:
+  #  name: review/$CI_COMMIT_REF_NAME
   tags:
     - andyhuang-lab
   before_script:
