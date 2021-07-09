@@ -15,7 +15,7 @@ docker-build:
   tags:
     - andyhuang-lab
   before_script:
-    #- echo "nameserver 127.0.0.1" > /etc/resolv.conf
+    - echo "nameserver 127.0.0.1" > /etc/resolv.conf
     - ls -al
     - cat /etc/resolv.conf
     - cat /etc/hosts
