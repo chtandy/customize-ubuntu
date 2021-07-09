@@ -6,13 +6,6 @@ services:
     alias: docker
 
 #variables:
-  # When using dind service, you must instruct Docker to talk with
-  # the daemon started inside of the service. The daemon is available
-  # with a network connection instead of the default
-  # /var/run/docker.sock socket.
-  #DOCKER_HOST: tcp://docker:2376
-  #DOCKER_CERT_PATH: /certs/client
-  #DOCKER_TLS_CERTDIR: /certs
   #DOCKER_DRIVER: overlay2
 
 stages:
@@ -24,13 +17,10 @@ docker-build:
   tags:
     - andyhuang-lab
   before_script:
-    #- echo "nameserver 127.0.0.1" > /etc/resolv.conf
     - ls -al
     - cat /etc/resolv.conf
     - cat /etc/hosts
-    #- docker ps
 
   script:
     - docker build -t ubuntu .
-    #- docker push nexus-beta.gamesoft-tech.com/jenkins-agent:latest
 
