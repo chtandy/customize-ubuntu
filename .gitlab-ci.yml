@@ -1,9 +1,9 @@
 # 使用docker in docker 必要區塊
-image: docker:dind
+#image: docker:dind
 
-#services:
-#  - name: docker:dind
-#    alias: docker
+services:
+  - name: docker:dind
+    alias: docker
 
 #variables:
   # When using dind service, you must instruct Docker to talk with
