@@ -5,6 +5,7 @@ services:
   - name: docker:dind
     alias: docker
 
+# 全域變數宣告
 #variables:
 #  DOCKER_HOST: tcp://docker:2376
 #  DOCKER_TLS_CERTDIR: "/certs"
@@ -15,6 +16,7 @@ stages:
   - test  
 
 docker-build:
+  # 可以不指定，會用services區塊指定的image
   image: docker:dind
   stage: build
   #environment:
@@ -34,6 +36,7 @@ docker-build:
     - set -ex && docker push registry.gitlab.com/chtandy/docker-ubuntu
 
 ubuntu-build:
+  # 需指定，否則會使用services區塊指定的image造成pipeline錯誤
   image: ubuntu:20.04
   stage: test
   #environment:
