@@ -1,3 +1,4 @@
+# 參考來源 https://docs.gitlab.com/ee/user/packages/container_registry/
 #image: docker:stable
 
 # 使用docker in docker 必要的 services 區塊
