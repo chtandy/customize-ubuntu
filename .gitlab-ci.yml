@@ -28,7 +28,7 @@ docker-build:
 
   script:
     - |
-      docker login registry.gitlab.com -u $GITLAB_USER  -p GITLAB_TOKEN 
+      docker login registry.gitlab.com -u ${GITLAB_USER} --password-stdin < ${GITLAB_TOKEN} 
 
 ubuntu-build:
   image: ubuntu:20.04
