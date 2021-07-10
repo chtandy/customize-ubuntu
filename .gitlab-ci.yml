@@ -28,12 +28,12 @@ docker-build:
       ls -al
       cat /etc/resolv.conf
       cat /etc/hosts
-      echo $CI_REGISTRY_USER
+    - echo $CI_REGISTRY_IMAGE
   script:
     # 有錯誤就離開
     - docker login -u ${GITLAB_USER} -p ${GITLAB_TOKEN} $CI_REGISTRY
     #- set -eux && echo ${GITLAB_TOKEN} | docker login $CI_REGISTRY -u ${GITLAB_USER} --password-stdin
-    #- set -ex && docker build -t $CI_REGISTRY/chtandy/docker-ubuntu .
+    #- set -ex && docker build -t $CI_REGISTRY/{GITLAB_USER}/docker-ubuntu .
     #- set -ex && docker push $CI_REGISTRY/chtandy/docker-ubuntu
 
 ubuntu-build:
