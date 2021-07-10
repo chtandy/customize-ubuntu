@@ -22,15 +22,15 @@ docker-build:
   tags:
     - andyhuang-lab
   before_script:
-    - ls -al
-    - cat /etc/resolv.conf
-    - cat /etc/hosts
+    - |
+      ls -al
+      cat /etc/resolv.conf
+      cat /etc/hosts
 
   script:
-    - |
-      echo ${GITLAB_TOKEN} | docker login registry.gitlab.com -u ${GITLAB_USER} --password-stdin
-      set -x && docker build -t registry.gitlab.com/chtandy/docker-ubuntu .
-      docker push registry.gitlab.com/chtandy/docker-ubuntu
+    - set -eux && echo ${GITLAB_TOKEN} | docker login registry.gitlab.com -u ${GITLAB_USER} --password-stdin
+    - set -ex && docker build -t registry.gitlab.com/chtandy/docker-ubuntu .
+    - set -ex && docker push registry.gitlab.com/chtandy/docker-ubuntu
 
 ubuntu-build:
   image: ubuntu:20.04
