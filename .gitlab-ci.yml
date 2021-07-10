@@ -30,9 +30,8 @@ docker-build:
       cat /etc/hosts
     - echo $CI_REGISTRY_IMAGE
   script:
-    # 有錯誤就離開
+    # 有錯誤就離開 ，$CI_REGISTRY_IMAGE 是系統提供的 
     - set -eux && docker login -u ${GITLAB_USER} -p ${GITLAB_TOKEN} $CI_REGISTRY
-    #- set -eux && echo ${GITLAB_TOKEN} | docker login $CI_REGISTRY -u ${GITLAB_USER} --password-stdin
     - set -ex && docker build -t $CI_REGISTRY_IMAGE .
     - set -ex && docker push $CI_REGISTRY_IMAGE
 
