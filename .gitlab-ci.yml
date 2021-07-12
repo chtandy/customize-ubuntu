@@ -31,8 +31,11 @@ docker-build:
       cat /etc/hosts
     - echo $CI_REGISTRY_IMAGE
     - echo $CI_REGISTRY
+    - echo $CI_REGISTRY_USER
+    - echo $CI_REGISTRY_PASSWORD
+
   script:
-    # 有錯誤就離開 ，$CI_REGISTRY_IMAGE 是系統提供的 
+    # 有錯誤就離開 ，$CI_REGISTRY_IMAGE $CI_REGISTRY  是系統提供的 
     - set -eux && docker login -u ${GITLAB_USER} -p ${GITLAB_TOKEN} $CI_REGISTRY
     #- set -ex && docker build -t $CI_REGISTRY_IMAGE .
     #- set -ex && docker push $CI_REGISTRY_IMAGE
