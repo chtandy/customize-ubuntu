@@ -54,5 +54,5 @@ ubuntu-build:
     - echo $HOSTNAME
     - pwd
     - ls -al
-    - apt-get update && apt install lsb-release
+    - apt-get update && apt install lsb-release -y
     - lsb_release -a
