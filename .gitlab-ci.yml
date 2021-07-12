@@ -14,7 +14,7 @@ services:
 
 stages:
   - build
-  - test  
+#  - test  
 
 docker-build:
   # 可以不指定，會用services區塊指定的image
@@ -30,23 +30,24 @@ docker-build:
       cat /etc/resolv.conf
       cat /etc/hosts
     - echo $CI_REGISTRY_IMAGE
+    - echo $CI_REGISTRY
   script:
     # 有錯誤就離開 ，$CI_REGISTRY_IMAGE 是系統提供的 
     - set -eux && docker login -u ${GITLAB_USER} -p ${GITLAB_TOKEN} $CI_REGISTRY
-    - set -ex && docker build -t $CI_REGISTRY_IMAGE .
-    - set -ex && docker push $CI_REGISTRY_IMAGE
+    #- set -ex && docker build -t $CI_REGISTRY_IMAGE .
+    #- set -ex && docker push $CI_REGISTRY_IMAGE
 
-ubuntu-build:
-  # 需指定，否則會使用services區塊指定的image造成pipeline錯誤
-  image: ubuntu:20.04
-  stage: test
-  #environment:
-  #  name: review/$CI_COMMIT_REF_NAME
-  tags:
-    - andyhuang-lab
-
-  script:
-    - echo $HOSTNAME
-    - pwd
-    - ls -al
-    - apt-get update
+#ubuntu-build:
+#  # 需指定，否則會使用services區塊指定的image造成pipeline錯誤
+#  image: ubuntu:20.04
+#  stage: test
+#  #environment:
+#  #  name: review/$CI_COMMIT_REF_NAME
+#  tags:
+#    - andyhuang-lab
+#
+#  script:
+#    - echo $HOSTNAME
+#    - pwd
+#    - ls -al
+#    - apt-get update
