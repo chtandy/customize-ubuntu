@@ -1,12 +1,12 @@
 # 參考來源 https://docs.gitlab.com/ee/user/packages/container_registry/
 #image: docker:stable
 
-# 使用docker in docker 必要的 services 區塊
+### 使用docker in docker 必要的 services 區塊
 services:
   - name: docker:dind
     alias: docker
 
-# 全域變數宣告
+### 全域變數宣告
 #variables:
 #  DOCKER_HOST: tcp://docker:2376
 #  DOCKER_TLS_CERTDIR: "/certs"
@@ -17,7 +17,7 @@ stages:
   - test  
 
 docker-build:
-  # 可以不指定，會用services區塊指定的image
+  ### 可以不指定，會用services區塊指定的image
   image: docker:dind
   stage: build
   #environment:
@@ -36,7 +36,7 @@ docker-build:
     - echo $CI_COMMIT_REF_NAME
 
   script:
-    # 有錯誤就離開 ，$CI_REGISTRY_IMAGE $CI_REGISTRY  是系統提供的 
+    ### 有錯誤就離開 ，$CI_REGISTRY_IMAGE $CI_REGISTRY_USER $CI_REGISTRY_PASSWORD $CI_REGISTRY  是系統提供的 
     - set -eux && docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY  
     #- set -ex && docker build -t $CI_REGISTRY_IMAGE .
     #- set -ex && docker push $CI_REGISTRY_IMAGE
