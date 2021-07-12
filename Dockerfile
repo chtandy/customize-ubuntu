@@ -20,7 +20,7 @@ RUN set -eux \
      echo "set paste"; \
      echo "syntax on"; \ 
      echo "colorscheme torte"; \
-     exho "set t_Co=256"; \
+     echo "set t_Co=256"; \
      echo "set nohlsearch"; \
      echo "set fileencodings=ucs-bom,utf-8,big5,gb18030,euc-jp,euc-kr,latin1"; \
      echo "set fileencoding=utf-8"; \
