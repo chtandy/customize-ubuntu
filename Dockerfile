@@ -1,6 +1,6 @@
 FROM ubuntu:20.04
 MAINTAINER cht.andy@gmail.com
-
+RUN mv /bin/sh /bin/sh.old && ln -s /bin/bash /bin/sh
 RUN set -eux \
   && echo "######### apt install supervisor ##########" \
   && apt-get update && apt-get install --assume-yes supervisor bash-completion \ 
