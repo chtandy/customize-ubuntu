@@ -20,6 +20,9 @@ docker-build:
   ### 可以不指定，會用services區塊指定的image
   image: docker:dind
   stage: build
+  # 只有上tag 才會build
+  only:
+    - tags
   #environment:
   #  name: review/$CI_COMMIT_REF_NAME
   variables:
