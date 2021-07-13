@@ -1,6 +1,10 @@
 FROM ubuntu:20.04
 MAINTAINER cht.andy@gmail.com
+
+# 替換dash > bash
 RUN mv /bin/sh /bin/sh.old && ln -s /bin/bash /bin/sh
+
+# 安裝 supervisor 並設置 /etc/supervisor/conf.d/supervisord.conf 
 RUN set -eux \
   && echo "######### apt install supervisor ##########" \
   && apt-get update && apt-get install --assume-yes supervisor bash-completion \ 
@@ -13,6 +17,8 @@ RUN set -eux \
      echo "pidfile=/tmp/supervisord.pid"; \
      } > /etc/supervisor/conf.d/supervisord.conf
 
+
+# 安裝 vim 並設置 /etc/vim/vimrc
 RUN set -eux \
   && echo "######### apt install vim ##########" \
   && apt-get update && apt-get install vim -y \
